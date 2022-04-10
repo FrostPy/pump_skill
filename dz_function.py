@@ -1,6 +1,3 @@
-from unittest import result
-
-
 def fizz_buzz(m,n):
     s = 0
     for i in range(m,n + 1):
@@ -8,7 +5,7 @@ def fizz_buzz(m,n):
             s += i
     return print(s) 
 
-fizz_buzz(1000,20000)
+
 
 
 def plural_form(number:int,form_1:str,form_2:str,form_3:str):
@@ -25,8 +22,6 @@ def plural_form(number:int,form_1:str,form_2:str,form_3:str):
             return form_3
         if 5 <=int(c[-1]) <= 9:
              return form_3    
-
-print(plural_form(993,'яблоко','яблока','яблок'))
 
 
 
@@ -51,12 +46,6 @@ def html_decor(*args,**kwargs):
 
     
         
-    
-
-
-
-
-
 @html_decor('body')
 @html_decor('div', width=200, height=100)
 @html_decor('a', href='https://yandex.ru/')
