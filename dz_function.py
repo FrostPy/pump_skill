@@ -13,6 +13,8 @@ def plural_form(number:int,form_1:str,form_2:str,form_3:str):
     #print(c)
     if number == 1:
         return form_1
+    elif 2 <= number <= 4:
+        return form_2
     elif 5 <= number <= 20:
         return form_3
     elif number > 20:
