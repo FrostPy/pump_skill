@@ -3,7 +3,7 @@ def fizz_buzz(m,n):
     for i in range(m,n):
         if i % 3 == 0 and i % 5 == 0:
             s += i
-    return print(s) 
+    return s  
 
 
 
@@ -28,23 +28,26 @@ def plural_form(number:int,form_1:str,form_2:str,form_3:str):
             return form_3 
 
 
+print(fizz_buzz(0,3))
 
 def html_decor(*args,**kwargs):
+    
     def decorator(dec_func):
-        def wrapper(attribute):
-          res_wrapper = dec_func(attribute)
-          if kwargs:
-              res_wrapper = f'{res_wrapper}'
-              attributes = ''
-              for k,v in kwargs.items():
+       
+       def wrapper(attribute):
+           res_wrapper = dec_func(attribute)
+           if kwargs:
+            res_wrapper = f'{res_wrapper}'
+            attributes = ''
+            for k,v in kwargs.items():
                 attributes += f' {k}="{v}"'
-              for ind in args:
+            for ind in args:
                   res_wrapper = f'<{ind}{attributes}>{res_wrapper}</{ind}>'
-          else:
-              for ind in args:
+            else:
+               for ind in args:
                 res_wrapper = f'<{ind}>{res_wrapper}</{ind}>'
-          return res_wrapper
-        return wrapper                   
+            return res_wrapper
+       return wrapper                   
     return decorator           
 
 
