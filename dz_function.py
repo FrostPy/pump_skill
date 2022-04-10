@@ -33,7 +33,7 @@ def plural_form(number:int,form_1:str,form_2:str,form_3:str):
 
 print(fizz_buzz(0,3))
 
-def html_decor(*args,**kwargs):
+def html_decor(args,**kwargs):
     
     def decorator(dec_func):
        
@@ -44,11 +44,9 @@ def html_decor(*args,**kwargs):
                  attributes = ''
                  for k,v in kwargs.items():
                     attributes += f' {k}="{v}"'
-                 for ind in args:
-                      res_wrapper = f'<{ind}{attributes}>{res_wrapper}</{ind}>'
+                 res_wrapper = f'<{args}{attributes}>{res_wrapper}</{args}>'
              else:
-                 for ind in args:
-                   res_wrapper = f'<{ind}>{res_wrapper}</{ind}>'
+                res_wrapper = f'<{args}>{res_wrapper}</{args}>'
              return res_wrapper
        return wrapper                   
     return decorator           
