@@ -4,7 +4,7 @@ def fizz_buzz(m,n):
         s = n
         return s
     else:     
-       for i in range(m,n):
+       for i in range(m,n+1):
           if i % 3 == 0 and i % 5 == 0:
             s += i
     return s
