@@ -44,7 +44,7 @@ def html_decor(*args,**kwargs):
                  attributes = ''
                  for k,v in kwargs.items():
                     attributes += f' {k}="{v}"'
-                    for ind in args:
+                 for ind in args:
                       res_wrapper = f'<{ind}{attributes}>{res_wrapper}</{ind}>'
              else:
                  for ind in args:
