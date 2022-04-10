@@ -33,7 +33,7 @@ def plural_form(number:int,form_1:str,form_2:str,form_3:str):
 
 print(fizz_buzz(0,3))
 
-def html_decor(args,**kwargs):
+def html(args,**kwargs):
     
     def decorator(dec_func):
        
@@ -54,9 +54,9 @@ def html_decor(args,**kwargs):
 
     
         
-@html_decor('body')
-@html_decor('div', width=200, height=100)
-@html_decor('a', href='https://yandex.ru/')
+@html('body')
+@html('div', width=200, height=100)
+@html('a', href='https://yandex.ru/')
 def to_string(input_value):
    return str(input_value)
    
