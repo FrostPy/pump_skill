@@ -61,4 +61,3 @@ def to_string(input_value):
    return str(input_value)
    
 
-print(to_string('ссылка на яндекс'))
