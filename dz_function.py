@@ -34,7 +34,6 @@ def html_decor(*args,**kwargs):
     def decorator(dec_func):
         def wrapper(attribute):
           res_wrapper = dec_func(attribute)
-          #attributes = ''
           if kwargs:
               res_wrapper = f'{res_wrapper}'
               attributes = ''
