@@ -39,9 +39,9 @@ def html_decor(*args,**kwargs):
               res_wrapper = f'{res_wrapper}'
               attributes = ''
               for k,v in kwargs.items():
-                attributes += f'{k}="{v}"'
+                attributes += f'{k}="{v} "'
               for ind in args:
-                  res_wrapper = f'<{ind}>{attributes}{res_wrapper}</{ind}>'
+                  res_wrapper = f'<{ind} {attributes}>{res_wrapper}</{ind}>'
           else:
               for ind in args:
                 res_wrapper = f'<{ind}>{res_wrapper}</{ind}>'
@@ -60,7 +60,7 @@ def html_decor(*args,**kwargs):
 
 @html_decor('body')
 @html_decor('div', width=200, height=100)
-@html_decor('div')
+@html_decor('a', href='https://yandex.ru/')
 def to_string(input_value):
    return str(input_value)
    
