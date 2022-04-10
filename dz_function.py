@@ -1,10 +1,13 @@
 def fizz_buzz(m,n):
     s = 0
-    for i in range(m,n):
-        if i % 3 == 0 and i % 5 == 0:
+    if m == n:
+        s = n
+        return s
+    else:     
+       for i in range(m,n):
+          if i % 3 == 0 and i % 5 == 0:
             s += i
-    return s  
-
+    return s
 
 
 
