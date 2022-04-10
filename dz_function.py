@@ -38,18 +38,18 @@ def html_decor(*args,**kwargs):
     def decorator(dec_func):
        
        def wrapper(attribute):
-           res_wrapper = dec_func(attribute)
-           if kwargs:
-            res_wrapper = f'{res_wrapper}'
-            attributes = ''
-            for k,v in kwargs.items():
-                attributes += f' {k}="{v}"'
-            for ind in args:
-                  res_wrapper = f'<{ind}{attributes}>{res_wrapper}</{ind}>'
-            else:
-               for ind in args:
-                res_wrapper = f'<{ind}>{res_wrapper}</{ind}>'
-            return res_wrapper
+             res_wrapper = dec_func(attribute)
+             if kwargs:
+              res_wrapper = f'{res_wrapper}'
+              attributes = ''
+              for k,v in kwargs.items():
+                  attributes += f' {k}="{v}"'
+              for ind in args:
+                    res_wrapper = f'<{ind}{attributes}>{res_wrapper}</{ind}>'
+              else:
+                 for ind in args:
+                   res_wrapper = f'<{ind}>{res_wrapper}</{ind}>'
+             return res_wrapper
        return wrapper                   
     return decorator           
 
