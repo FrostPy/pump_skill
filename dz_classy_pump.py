@@ -64,7 +64,7 @@ class Ingredient:
 
 
 class Pizza(Product):
-    def __init__(self,title,ingredients:list):
+    def __init__(self,title,ingredients):
         super().__init__(title,1,1)
         self.ingredients = ingredients
         
