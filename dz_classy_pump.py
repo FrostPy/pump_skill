@@ -4,7 +4,7 @@ class Title:
             raise NameError('Поле title должно быть обьязательно заполнено')
        else:
            self.title = title
-       return self.title
+       
 
 
 
@@ -18,6 +18,9 @@ class Product(Title):
             self.title = super().__init__(title) # Название продукта
             self.calorific = calorific # Калорийность продукта только положительно число
             self.cost = cost # Себестоимость только положительное число
+
+
+      
 
 class Ingredient:
     def __init__(self,product = Product,weight = 0):
