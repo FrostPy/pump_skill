@@ -44,7 +44,7 @@ class Ingredient:
             self.__weight = weight    # Вес только положительное число
             self.product = product
 
-          
+    @property      
     def weight(self):
         return self.__weight
     
@@ -54,12 +54,12 @@ class Ingredient:
             raise ValueError('Значение атрибута weight должно быть положительным')   
         else:
             self.__weight = value
-    
+    @property
     def get_calorific(self):
         calorific_ingredient = self.weight / 100 * self.product.calorific
         return calorific_ingredient
     
-    
+    @property
     def get_cost(self):
         cost_ingredient = self.weight / 100 * self.product.cost
         return cost_ingredient
