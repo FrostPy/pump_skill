@@ -50,7 +50,7 @@ class Ingredient():
     
     @weight.setter
     def weight(self,value):
-        if self.__weight <= 0:
+        if value <= 0:
             raise ValueError('Значение атрибута weight должно быть положительным')   
         else:
             self.__weight = value
