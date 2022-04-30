@@ -19,15 +19,16 @@ class Product(Title):
             self.calorific = calorific # Калорийность продукта только положительно число
             self.cost = cost # Себестоимость только положительное число
 
-class Ingredient():
-    def __init__(self,Product,weight):
-        if weight < 0:
-            raise ValueError('Значение weigh только положительно число')
-        else:
-            self.weight = weight    # Вес только положительное число
-            self.product = Product
+class Ingredient:
+    product = Product()
+    def __init__(self,weight):
+           if weight < 0:
+             raise ValueError('Значение weigh только положительно число')
+           else:
+              self.weight = weight
+       
+
             
-    
     @property
     def get_calorific(self):
         calorific_ingredient = self.weight / 100 * self.product.calorific
