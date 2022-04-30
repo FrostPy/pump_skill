@@ -1,24 +1,17 @@
-class Title:
-    def __init__(self,title):
-       if len(title) == 0:
-            raise NameError('Поле title должно быть обьязательно заполнено')
-       else:
-           self.title = title
-       return self.title
 
 
+class Product:
+    def __init__(self, title, calorific, cost):
+        self.__title = title
+        self.calorific = calorific
+        self.cost = cost
 
-class Product(Title):
-    def __init__(self,title,calorific, cost):
-        if calorific < 0:
-            raise ValueError('Значение атрибута calorific только положительное число')
-        elif cost < 0:
-            raise ValueError('Значение cost только положительное число')    
-        else:    
-            self.title = super().__init__(title) # Название продукта
-            self.calorific = calorific # Калорийность продукта только положительно число
-            self.cost = cost # Себестоимость только положительное число
+    @property
+    def title(self):
+        return self.__title
 
+    
+    @title.setter
     def title(self, value):
         if not value:
             raise ValueError('Название обязательно для заполнения')
@@ -47,7 +40,7 @@ class Product(Title):
         else:
             self.__cost = value                
 
-class Ingredient():
+class Ingredient:
     def __init__(self,Product,weight):
         self.__weight = weight    # Вес только положительное число
         self.product = Product
@@ -57,10 +50,11 @@ class Ingredient():
         return self.__weight
     
     @weight.setter
-    def weight(self):
+    def weight(self,value):
         if self.__weight <= 0:
             raise ValueError('Значение атрибута weight должно быть положительным')   
-    
+        else:
+            self.__weight = value
     @property
     def get_calorific(self):
         calorific_ingredient = self.weight / 100 * self.product.calorific
@@ -74,8 +68,9 @@ class Ingredient():
 
 class Pizza(Product):
     def __init__(self,title,ingredients:list):
-        self.title = super().__init__(title,1,1)
+        super().__init__(title,1,1)
         self.ingredients = ingredients
+        
 
     @property
     def get_calorific(self):
