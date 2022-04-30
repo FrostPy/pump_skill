@@ -39,7 +39,7 @@ class Product:
             self.__cost = value                
 
 
-class Ingredient:
+class Ingredient():
     def __init__(self,product, weight):
             self.__weight = weight    # Вес только положительное число
             self.product = product
