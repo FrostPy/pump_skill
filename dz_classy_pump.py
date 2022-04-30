@@ -20,12 +20,12 @@ class Product(Title):
             self.cost = cost # Себестоимость только положительное число
 
 class Ingredient:
-    product = Product()
-    def __init__(self,weight):
+    def __init__(self,product = Product,weight = 0):
            if weight < 0:
              raise ValueError('Значение weigh только положительно число')
            else:
               self.weight = weight
+              self.product = product
        
 
             
