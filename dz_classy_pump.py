@@ -24,7 +24,7 @@ class Product:
 
     @calorific.setter
     def calorific(self, value):
-        if value < 0:
+        if value <= 0:
             raise ValueError('Значение атрибута calorific только положительное число')
         else:
             self.__calorific = value
@@ -35,13 +35,13 @@ class Product:
 
     @cost.setter
     def cost(self, value):
-        if value < 0:
+        if value <= 0:
             raise ValueError('Значение cost только положительное число')
         else:
             self.__cost = value                
 
 class Ingredient():
-    def __init__(self,product = Product, weight = 0):
+    def __init__(self,product = Product, weight = ''):
             self.__weight = weight    # Вес только положительное число
             self.product = product
 
@@ -51,7 +51,7 @@ class Ingredient():
     
     @weight.setter
     def weight(self,value):
-        if self.__weight < 0:
+        if self.__weight <= 0:
             raise ValueError('Значение атрибута weight должно быть положительным')   
         else:
             self.__weight = value
