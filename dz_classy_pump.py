@@ -40,10 +40,10 @@ class Product:
         else:
             self.__cost = value                
 
-class Ingredient():
-    def __init__(self,product = Product, weight = ''):
-            self.__weight = weight    # Вес только положительное число
+class Ingredient:
+    def __init__(self, product, weight):
             self.product = product
+            self.__weight = weight
 
     @property        
     def weight(self):
