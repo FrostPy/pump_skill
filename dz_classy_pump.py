@@ -1,6 +1,6 @@
 class Title:
-    def __init__(self,title):
-       if len(title) == 0:
+    def __init__(self,title = ''):
+       if title == '':
             raise NameError('Поле title должно быть обьязательно заполнено')
        else:
            self.title = title
@@ -10,9 +10,9 @@ class Title:
 
 class Product(Title):
     def __init__(self,title,calorific, cost):
-        if calorific < 0:
+        if calorific <= 0:
             raise ValueError('Значение атрибута calorific только положительное число')
-        elif cost < 0:
+        elif cost <= 0:
             raise ValueError('Значение cost только положительное число')    
         else:    
             self.title = super().__init__(title) # Название продукта
@@ -21,7 +21,7 @@ class Product(Title):
 
 class Ingredient:
     def __init__(self,product = Product,weight = 0):
-           if weight < 0:
+           if weight <= 0:
              raise ValueError('Значение weigh только положительно число')
            else:
               self.weight = weight
@@ -62,7 +62,7 @@ class Pizza(Title):
     def __str__(self):
         return f'{self.title} ({self.get_calorific} kkal) - {self.get_cost} руб'  
 
-dough_product = Product('Тесто', 200, 20)
+dough_product = Product('Морковка', 200, 20)
 tomato_product = Product('Помидор', 100, 50)
 cheese_product = Product('Сыр', 100, 120)
 
