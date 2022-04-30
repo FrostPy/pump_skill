@@ -54,11 +54,11 @@ class Ingredient():
             raise ValueError('Значение атрибута weight должно быть положительным')   
         else:
             self.__weight = value
-    @property
+    
     def get_calorific(self):
         return self.weight / 100 * self.product.calorific
     
-    @property
+    
     def get_cost(self):
         return self.weight / 100 * self.product.cost
 
@@ -73,14 +73,14 @@ class Pizza(Product):
     def get_calorific(self):
         sum_calorific = 0
         for ingred_calorific in self.ingredients:
-            sum_calorific += ingred_calorific.get_calorific
+            sum_calorific += ingred_calorific.get_calorific()
         return sum_calorific
    
     
     def get_cost(self):
         sum_cost = 0
         for ingred_cost in self.ingredients:
-            sum_cost += ingred_cost.get_cost      
+            sum_cost += ingred_cost.get_cost()      
         return sum_cost
 
     def __str__(self):
