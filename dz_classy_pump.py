@@ -8,6 +8,7 @@ class Product:
     def title(self):
         return self.__title
 
+    
     @title.setter
     def title(self, value):
         if not value:
@@ -22,7 +23,7 @@ class Product:
     @calorific.setter
     def calorific(self, value):
         if value <= 0:
-            raise ValueError('Калорийность должна быть положительной')
+            raise ValueError('Значение атрибута calorific только положительное число')
         else:
             self.__calorific = value
 
@@ -33,56 +34,60 @@ class Product:
     @cost.setter
     def cost(self, value):
         if value <= 0:
-            raise ValueError('Себестоимость должна быть положительной')
+            raise ValueError('Значение cost только положительное число')
         else:
-            self.__cost = value
+            self.__cost = value                
 
 
-class Ingredient():
-    def __init__(self, product, weight):
+class Ingredient:
+    def __init__(self,product, weight):
+            self.__weight = weight    # Вес только положительное число
             self.product = product
-            self.__weight = weight
 
-    @property
+          
     def weight(self):
         return self.__weight
-
+    
     @weight.setter
-    def weight(self, value):
-        if value <= 0:
-            raise ValueError('Вес должен быть положительным')
+    def weight(self,value):
+        if self.__weight <= 0:
+            raise ValueError('Значение атрибута weight должно быть положительным')   
         else:
             self.__weight = value
-
+    
     def get_calorific(self):
-        return self.weight / 100 * self.product.calorific
-
+        calorific_ingredient = self.weight / 100 * self.product.calorific
+        return calorific_ingredient
+    
+    
     def get_cost(self):
-        return self.weight / 100 * self.product.cost
+        cost_ingredient = self.weight / 100 * self.product.cost
+        return cost_ingredient
 
 
-class Pizza (Product):
-    def __init__(self, title, ingredients):
-        super().__init__(title, 1, 1)
+class Pizza(Product):
+    def __init__(self,title,ingredients:list):
+        super().__init__(title,1,1)
         self.ingredients = ingredients
+        
 
+    @property
     def get_calorific(self):
-        total_calorific = 0
-        for ingredient in self.ingredients:
-            total_calorific += ingredient.get_calorific()
-        return total_calorific
-
+        sum_calorific = 0
+        for ingred_calorific in self.ingredients:
+            sum_calorific += ingred_calorific.get_calorific
+        return sum_calorific
+   
+    @property
     def get_cost(self):
-        total_cost = 0
-        for ingredient in self.ingredients:
-            total_cost += ingredient.get_cost()
-        return total_cost
+        sum_cost = 0
+        for ingred_cost in self.ingredients:
+            sum_cost += ingred_cost.get_cost      
+        return sum_cost
 
     def __str__(self):
-        return f'{self.title} ({self.get_calorific()} kkal) - {self.get_cost()} руб'
+        return f'{self.title} ({self.get_calorific} kkal) - {self.get_cost} руб'  
 
-
-# Создаем продукты с указанием названия, калорийности продукта и его себестоимости
 dough_product = Product('Тесто', 200, 20)
 tomato_product = Product('Помидор', 100, 50)
 cheese_product = Product('Сыр', 100, 120)
@@ -95,9 +100,8 @@ cheese_ingredient = Ingredient(cheese_product, 100)
 
 # Из ингредиентов создаем пиццу
 pizza_margarita = Pizza('Маргарита', [dough_ingredient, tomato_ingredient, cheese_ingredient])
-pizza_margarita_light = Pizza('Маргарита', [dough_ingredient, cheese_ingredient])
+pizza_margarita_light = Pizza('Маргарита лайт', [dough_ingredient, cheese_ingredient])
 
 # Выводим экземпляр пиццы
 print(pizza_margarita)
 print(pizza_margarita_light)
-
