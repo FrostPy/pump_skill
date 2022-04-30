@@ -66,7 +66,7 @@ class Ingredient():
         calorific_ingredient = self.weight / 100 * self.product.calorific
         return calorific_ingredient
     
-    
+    @property
     def get_cost(self):
         cost_ingredient = self.weight / 100 * self.product.cost
         return cost_ingredient
@@ -74,7 +74,7 @@ class Ingredient():
 
 class Pizza(Product):
     def __init__(self,title,ingredients:list):
-        self.title = super().__init__(title,0,0)
+        self.title = super().__init__(title,1,1)
         self.ingredients = ingredients
 
     @property
