@@ -10,9 +10,9 @@ class Title:
 
 class Product(Title):
     def __init__(self,title,calorific, cost):
-        if calorific <= 0:
+        if calorific < 0:
             raise ValueError('Значение атрибута calorific только положительное число')
-        elif cost <= 0:
+        elif cost < 0:
             raise ValueError('Значение cost только положительное число')    
         else:    
             self.title = super().__init__(title) # Название продукта
